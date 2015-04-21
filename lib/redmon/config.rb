@@ -10,7 +10,7 @@ module Redmon
   class Config
     DEFAULTS = {
       :namespace     => nil,
-      :redis         => { url: 'redis://127.0.0.1:6379' }
+      :redis         => { url: 'redis://127.0.0.1:6379' },
       :redis_url     => nil,
       :app           => true,
       :worker        => true,
