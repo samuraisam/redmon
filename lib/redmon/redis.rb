@@ -15,11 +15,15 @@ module Redmon
     ]
 
     def redis
-      @redis ||= ::Redis.connect(:url => Redmon.config.redis_url)
+      if Redmon.config.redis_url
+        @redis ||= ::Redis.connect(:url => Redmon.config.redis_url)
+      else
+        @redis ||= ::Redis.new(Redmon.config.redis)
+      end
     end
 
     def ns
-      Redmon.config.namespace
+      Redmon.config.namespace || Redmon.config.redis[:namespace]
     end
 
     def redis_url

@@ -9,8 +9,9 @@ module Redmon
 
   class Config
     DEFAULTS = {
-      :namespace     => 'redmon',
-      :redis_url     => 'redis://127.0.0.1:6379',
+      :namespace     => nil,
+      :redis         => { url: 'redis://127.0.0.1:6379' }
+      :redis_url     => nil,
       :app           => true,
       :worker        => true,
       :web_interface => ['0.0.0.0', 4567],
