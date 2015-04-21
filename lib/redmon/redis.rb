@@ -27,7 +27,7 @@ module Redmon
     end
 
     def redis_url
-      @redis_url ||= Redmon.config.redis_url.gsub(/\w*:\w*@/, '')
+      @redis_url ||= (Redmon.config.redis_url || Redmon.config.redis[:url]).gsub(/\w*:\w*@/, '')
     end
 
     def redis_host
